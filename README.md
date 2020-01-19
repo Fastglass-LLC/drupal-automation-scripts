@@ -1,6 +1,9 @@
 # Drupal Automation Scripts
 Collection of shell scripts to perform various functions to automate Drupal things.
 
+## Requirements
+You must have drush available as well as composer in order to use these scripts.
+
 # Environment Variable Install
 List of variables to set to use `drush-site-install-environment-vars.sh`. You can either set the DB password or pass a file such as a Docker secret. Same applies to the site admin password.
 - `DBHOST` Database host
