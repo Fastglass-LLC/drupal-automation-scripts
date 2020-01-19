@@ -82,16 +82,14 @@ fi
 
 # This determines the location of this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-suffix="profiles/pdsbase/scripts"
-DWD=${DIR%$suffix}
 
 if [[ -z "${DELETESETTING// }" ]]; then
   DELETESETTING="no"
 fi
 
 if [[ "$DELETESETTING" = "yes" ]] ; then
-  chmod -R 777 ${DWD}/web/sites/default/
-  rm ${DWD}/web/sites/default/settings.php
+  chmod -R 777 ${DIR}/web/sites/default/
+  rm ${DIR}/web/sites/default/settings.php
 fi
 
 # Composer install is run as this will load what is in the composer.lock.
@@ -107,22 +105,22 @@ drush site-install standard -y \
 --db-url=mysql://$db_user:$db_password@$db_host/$db_name ;
 
 # Cleanup and delete text files to prevent easy "finger printing" of the site.
-rm ${DWD}/web/INSTALL.txt
-rm ${DWD}/web/README.txt
-rm ${DWD}/web/core/CHANGELOG.txt
-rm ${DWD}/web/core/COPYRIGHT.txt
-rm ${DWD}/web/core/INSTALL.mysql.txt
-rm ${DWD}/web/core/INSTALL.pgsql.txt
-rm ${DWD}/web/core/INSTALL.sqlite.txt
-rm ${DWD}/web/core/INSTALL.txt
-rm ${DWD}/web/core/MAINTAINERS.txt
-rm ${DWD}/web/core/UPDATE.txt
+rm ${DIR}/web/INSTALL.txt
+rm ${DIR}/web/README.txt
+rm ${DIR}/web/core/CHANGELOG.txt
+rm ${DIR}/web/core/COPYRIGHT.txt
+rm ${DIR}/web/core/INSTALL.mysql.txt
+rm ${DIR}/web/core/INSTALL.pgsql.txt
+rm ${DIR}/web/core/INSTALL.sqlite.txt
+rm ${DIR}/web/core/INSTALL.txt
+rm ${DIR}/web/core/MAINTAINERS.txt
+rm ${DIR}/web/core/UPDATE.txt
 
 # Rename the License file to stay compliant but not easily found.
-mv ${DWD}/web/core/LICENSE.txt ${DWD}/web/core/license-file.txt
+mv ${DIR}/web/core/LICENSE.txt ${DIR}/web/core/license-file.txt
 
 echo "Optimize Composer Autoloader"
-cd ${DWD}
+cd ${DIR}
 composer dump-autoload --optimize
 echo "Cleaning all caches."
 # Last minute cleanse.
