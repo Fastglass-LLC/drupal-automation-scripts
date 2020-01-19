@@ -2,7 +2,7 @@
 Collection of shell scripts to perform various functions to automate Drupal things.
 
 # Environment Variable Install
-List of variables to set. You can either set the DB password or pass a file such as a Docker secret. Same applies to the site admin password.
+List of variables to set to use `drush-site-install-environment-vars.sh`. You can either set the DB password or pass a file such as a Docker secret. Same applies to the site admin password.
 - `DBHOST` Database host
 - `DBUSER` Database user
 - `DBNAME` Database name
