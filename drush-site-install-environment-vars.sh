@@ -72,7 +72,6 @@ else
   exit 1
 fi
 
-
 # Drupal site email.
 if [ -n "$DSITEEMAIL" ]; then
   d_siteemail=$DSITEEMAIL
@@ -95,10 +94,9 @@ if [[ "$DELETESETTING" = "yes" ]] ; then
   rm ${DWD}/web/sites/default/settings.php
 fi
 
-# Composer install is run as this will load what is in the composer.lock
+# Composer install is run as this will load what is in the composer.lock.
 
 composer install --no-dev
-
 
 drush site-install standard -y \
 --site-name=$d_sitename \
@@ -108,13 +106,7 @@ drush site-install standard -y \
 --account-mail=$d_siteemail \
 --db-url=mysql://$db_user:$db_password@$db_host/$db_name ;
 
-chmod 777 ${DWD}/web/sites/default
-chmod 644 ${DWD}/web/sites/default/settings.php
-
-chmod 444 ${DWD}/web/sites/default/settings.php
-chmod 555 ${DWD}/web/sites/default
-
-# Cleanup and delete text files
+# Cleanup and delete text files to prevent easy "finger printing" of the site.
 rm ${DWD}/web/INSTALL.txt
 rm ${DWD}/web/README.txt
 rm ${DWD}/web/core/CHANGELOG.txt
@@ -126,7 +118,7 @@ rm ${DWD}/web/core/INSTALL.txt
 rm ${DWD}/web/core/MAINTAINERS.txt
 rm ${DWD}/web/core/UPDATE.txt
 
-# Rename the License file to stay compliant but not easily found
+# Rename the License file to stay compliant but not easily found.
 mv ${DWD}/web/core/LICENSE.txt ${DWD}/web/core/license-file.txt
 
 echo "Optimize Composer Autoloader"
