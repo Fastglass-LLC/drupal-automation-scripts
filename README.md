@@ -5,7 +5,7 @@ Collection of shell scripts to perform various functions to automate Drupal thin
 You must have drush available as well as composer in order to use these scripts.
 
 # Environment Variable Install
-List of variables to set to use `drush-site-install-environment-vars.sh`. You can either set the DB password or pass a file such as a Docker secret. Same applies to the site admin password.
+List of variables to set to use `drush-site-install-environment-vars.sh`. You can either set the DB password or pass a file such as a Docker secret. Same applies to the site admin password. The environment install script as well as others will delete all of the text files that come with Drupal and rename the license file for the purpose of preventing easy "finger printing" of the site. Doing this is a very easy security precaution for any public website.
 - `DBHOST` Database host
 - `DBUSER` Database user
 - `DBNAME` Database name
