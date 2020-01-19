@@ -14,3 +14,18 @@ List of variables to set to use `drush-site-install-environment-vars.sh`. You ca
 - `DSITENAME` Drupal site name
 - `DSITEEMAIL` Drupal site email adddress
 - Optional: `DELETESETTING=yes` to delete the settings file on init
+
+For easy copying:
+```
+DBHOST 
+DBUSER
+DBNAME
+DBPASS
+DBPASS_FILE
+DNAME
+DPASS
+DPASS_FILE
+DSITENAME
+DSITEEMAIL
+DELETESETTING=yes
+```
