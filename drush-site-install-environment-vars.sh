@@ -83,15 +83,6 @@ fi
 # This determines the location of this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ -z "${DELETESETTING// }" ]]; then
-  DELETESETTING="no"
-fi
-
-if [[ "$DELETESETTING" = "yes" ]] ; then
-  chmod -R 777 ${DIR}/web/sites/default/
-  rm ${DIR}/web/sites/default/settings.php
-fi
-
 # Composer install is run as this will load what is in the composer.lock.
 
 composer install --no-dev
